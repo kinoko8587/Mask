@@ -1,7 +1,7 @@
 {
   "name": "mask",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://kinoko8587.github.io/Mask",
   "dependencies": {
     "@material-ui/core": "^4.9.2",
@@ -10,8 +10,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "is-promise": "^2.2.0",
     "leaflet": "^1.6.0",
     "leaflet.markercluster": "^1.4.1",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -20,6 +22,7 @@
     "react-redux": "^7.2.0",
     "react-scripts": "3.3.1",
     "react-select": "^3.0.8",
+    "redux": "^4.0.5",
     "redux-observable": "^1.2.0",
     "rxjs": "^6.5.4",
     "semantic-ui-css": "^2.4.1",
