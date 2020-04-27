@@ -1,6 +1,4 @@
-// import負責創建store的函式createStore
 import { createStore, applyMiddleware, compose } from 'redux';
-// 引入createEpicMiddleware
 import { createEpicMiddleware } from 'redux-observable';
 
 import Reducer from '../reducers';

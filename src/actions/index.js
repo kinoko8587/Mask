@@ -1,17 +1,3 @@
-export const maskSupply = (clicked) => {
-    return {
-        type: 'MASK_SUPPLY',
-        clicked: clicked,
-    };
-};
-
-export const howToBuyMask = (clicked) => {
-    return {
-        type: 'HOW_TO_BUY_MASK',
-        clicked: clicked,
-    };
-};
-
 //發送 口罩資訊request
 export const fetchMaskInformation = (callback) => {
     return {
@@ -29,13 +15,6 @@ export const recieveMaskInformation = (res, updateTime) => {
     };
 }
 
-export const initMaskInformation = (arr) => {
-    return {
-        type: 'INIT_MASK_INFORMATION',
-        initMaskInformationLists: arr,
-    }
-}
-
 export const maskInformationIsLoading = (isLoading) => {
     return {
         type: 'MASK_INFORMATION_IS_LOADING',
@@ -43,20 +22,6 @@ export const maskInformationIsLoading = (isLoading) => {
     }
 }
 
-export const handleDrugstoreClicked = (drugstoreId) => {
-    return {
-        type: 'HANDLE_DRUGSTORE_CLICKED',
-        drugstoreId: drugstoreId,
-    }
-}
-
-// 使用者查詢口罩資訊
-export const searchMaskInformation = (searchText) => {
-    return {
-        type: 'SEARCH_MASK_INFORMATION',
-        searchText: searchText,
-    }
-}
 
 export const clearSearchMaskInformationLists = () => {
     return {

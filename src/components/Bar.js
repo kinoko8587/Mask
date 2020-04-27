@@ -5,9 +5,11 @@ import _ from 'lodash'
 import PropTypes from 'prop-types'
 import areaDatas from '../area'
 import photo from '../assets/photo.jpeg';
-import LMap from './LMap'
+import { useStore,useSelector } from 'react-redux'
 
-function Content(props) {
+function Bar(props) {
+  const store = useStore()
+  let updateTime = useSelector(state => state.updateTime)
   const [datas, setDatas] = useState([]);
   const [position, setPosition] = useState([
     23.5,
@@ -19,21 +21,6 @@ function Content(props) {
 
   function handleItemClick(e, { name }) { setActiveItem(name) }
 
-//   useEffect(() => {
-//     fetch("https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json")
-//       .then((response) => response.json())
-//       .then((responseJson) => {
-//         console.log(responseJson);
-//         let data = filterData(responseJson.features);
-//         setDatas(data);
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//     if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(function (position) { setGeo(position) });
-//     }
-//   }, []);
   function filterData(datas) {
     // if (datas.features != null) {
     //   let returnDatas = datas.features.map(data => {
@@ -62,28 +49,25 @@ function Content(props) {
 
   return (
     <div >
-      <Grid container>
-        <Grid.Row>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column width={4}>
-            <label> 口罩地圖</label>
-            <Card>
-              <Card.Content>
-                <Card.Header>
-                  成人口罩數量顏色
-        </Card.Header>
-                <Card.Description>
-                  <Label circular color="green" >> 50</Label>
-                  <Label circular color="yellow"   >20~49</Label>
-                  <Label circular color="orange"  >1~19</Label>
-                  <Label circular color="red"  >0</Label>
-                </Card.Description>
-              </Card.Content>
-            </Card>
-            <Card image={photo} />
 
-            {/* <Grid.Column width={6}>
+      <h2> 口罩地圖</h2>
+      <label>更新時間:{updateTime}</label>
+      <Card>
+        <Card.Content>
+          <Card.Header>
+            成人口罩數量顏色
+        </Card.Header>
+          <Card.Description>
+            <Label circular color="green" >> 50</Label>
+            <Label circular color="yellow"   >20~49</Label>
+            <Label circular color="orange"  >1~19</Label>
+            <Label circular color="red"  >0</Label>
+          </Card.Description>
+        </Card.Content>
+      </Card>
+      {/* <Card image={photo} /> */}
+
+      {/* <Grid.Column width={6}>
               <Form>
                 <Form.Field>
                   <label>縣市</label>
@@ -98,18 +82,12 @@ function Content(props) {
                 </Form.Field>
               </Form>
             </Grid.Column> */}
-            <Tab panes={panes} />
-          </Grid.Column>
-          <Grid.Column width={8}>
-           <LMap data={datas}></LMap>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <Tab panes={panes} />
     </div >
   );
 }
 
-export default Content;
+export default Bar;
 
 const resultRenderer = ({ name }) => <Label content={name} />
 
